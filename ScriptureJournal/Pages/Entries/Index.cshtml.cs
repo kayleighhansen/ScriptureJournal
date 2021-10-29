@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ScriptureJournal.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace ScriptureJournal.Pages.Entries
 {
@@ -19,10 +21,22 @@ namespace ScriptureJournal.Pages.Entries
         }
 
         public IList<Entry> Entry { get;set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
+        public SelectList Books { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string BookGenre { get; set; }
 
         public async Task OnGetAsync()
         {
-            Entry = await _context.Entry.ToListAsync();
+            var entries = from m in _context.Entry
+                 select m;
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                entries = entries.Where(s => s.Book.Contains(SearchString));
+            }
+
+            Entry = await entries.ToListAsync();
         }
     }
 }

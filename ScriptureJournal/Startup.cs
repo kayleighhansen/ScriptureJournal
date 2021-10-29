@@ -39,6 +39,9 @@ namespace ScriptureJournal
         }
 
         services.AddRazorPages();
+
+        services.AddDbContext<ScriptureJournalContext>(options =>
+        options.UseSqlite(Configuration.GetConnectionString("ScriptureJournalContext")));
     }
 
     public void Configure(IApplicationBuilder app)
