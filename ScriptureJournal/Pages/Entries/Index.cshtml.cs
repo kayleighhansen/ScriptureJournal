@@ -29,13 +29,24 @@ namespace ScriptureJournal.Pages.Entries
 
         public async Task OnGetAsync()
         {
+            IQueryable<string> bookQuery = from m in _context.Entry
+                                                orderby m.Book
+                                                select m.Book;
+
             var entries = from m in _context.Entry
-                 select m;
+                        select m;
+
             if (!string.IsNullOrEmpty(SearchString))
             {
                 entries = entries.Where(s => s.Book.Contains(SearchString));
             }
 
+            if (!string.IsNullOrEmpty(Book))
+            {
+                entries = entries.Where(x => x.Book == Book);
+            }
+
+            Books = new SelectList(await bookQuery.Distinct().ToListAsync());
             Entry = await entries.ToListAsync();
         }
     }
