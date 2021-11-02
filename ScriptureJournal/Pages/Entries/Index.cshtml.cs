@@ -23,6 +23,7 @@ namespace ScriptureJournal.Pages.Entries
         public IList<Entry> Entry { get;set; }
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
+        public string SearchStringBook { get; set; }
         public SelectList Books { get; set; }
         [BindProperty(SupportsGet = true)]
         public string Book { get; set; }
@@ -42,10 +43,10 @@ namespace ScriptureJournal.Pages.Entries
                 entries = entries.Where(s => s.Text.Contains(SearchString));
             }
             
-            // if (!string.IsNullOrEmpty(Book))
-            // {
-            //     entries = entries.Where(x => x.Book == Book);
-            // }
+            if (!string.IsNullOrEmpty(SearchStringBook))
+            {
+                entries = entries.Where(s => s.Text.Contains(SearchString));
+            }
 
             Books = new SelectList(await bookQuery.Distinct().ToListAsync());
             Entry = await entries.ToListAsync();
