@@ -13,6 +13,7 @@ namespace ScriptureJournal.Models
         public DateTime DateAdded { get; set; }
         public string Book { get; set; }
         public string Chapter { get; set; }
+        public string Verse { get; set; }
         public string Keyword { get; set; }
         public string Text { get; set; }
     }

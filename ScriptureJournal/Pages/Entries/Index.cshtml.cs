@@ -26,6 +26,7 @@ namespace ScriptureJournal.Pages.Entries
         public SelectList Books { get; set; }
         [BindProperty(SupportsGet = true)]
         public string Book { get; set; }
+        public string Text { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -38,7 +39,7 @@ namespace ScriptureJournal.Pages.Entries
 
             if (!string.IsNullOrEmpty(SearchString))
             {
-                entries = entries.Where(s => s.Book.Contains(SearchString));
+                entries = entries.Where(s => s.Text.Contains(SearchString));
             }
             
             // if (!string.IsNullOrEmpty(Book))

@@ -26,6 +26,7 @@ namespace ScriptureJournal.Models
                         DateAdded = DateTime.Parse("1989-2-12"),
                         Book = "Mosiah",
                         Chapter = "12",
+                        Verse = "1",
                         Keyword = "Forgiveness",
                         Text = "This is the best chapter ever"
                     },
@@ -34,6 +35,7 @@ namespace ScriptureJournal.Models
                         DateAdded = DateTime.Parse("1989-2-12"),
                         Book = "Mosiah",
                         Chapter = "12",
+                        Verse = "1",
                         Keyword = "Forgiveness",
                         Text = "This is the best chapter ever"
                     },
@@ -42,6 +44,7 @@ namespace ScriptureJournal.Models
                         DateAdded = DateTime.Parse("1989-2-12"),
                         Book = "Mosiah",
                         Chapter = "12",
+                        Verse = "1",
                         Keyword = "Forgiveness",
                         Text = "This is the best chapter ever"
                     },
@@ -50,6 +53,7 @@ namespace ScriptureJournal.Models
                         DateAdded = DateTime.Parse("1989-2-12"),
                         Book = "Mosiah",
                         Chapter = "12",
+                        Verse = "1",
                         Keyword = "Forgiveness",
                         Text = "This is the best chapter ever"
                     }

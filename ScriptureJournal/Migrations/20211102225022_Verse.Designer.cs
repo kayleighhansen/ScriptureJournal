@@ -2,14 +2,16 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ScriptureJournal.Migrations
 {
     [DbContext(typeof(ScriptureJournalContext))]
-    partial class ScriptureJournalContextModelSnapshot : ModelSnapshot
+    [Migration("20211102225022_Verse")]
+    partial class Verse
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

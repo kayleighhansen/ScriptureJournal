@@ -12,8 +12,8 @@
 </p>
 <form>
     <p>
-        Title: <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Filter" />
+        <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Search" />
     </p>
 </form>
 <table class="table">
@@ -27,6 +27,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Entry[0].Chapter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entry[0].Verse)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Entry[0].Keyword)
@@ -48,6 +51,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Chapter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Verse)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Keyword)
