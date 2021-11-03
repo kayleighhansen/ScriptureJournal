@@ -12,19 +12,18 @@
 </p>
 <form>
     <p>
-        <input type="text" asp-for="SearchString" />
+        <input type="text" asp-for="SearchStringBook" />
         <input type="submit" value="Search" />
     </p>
 </form>
+
 <form>
     <p>
-        <select name="number" asp-for="SearchString">
-            <option value="">Sort By Book</option>
-            <option value="Mosiah">Mosiah</option>
-            <option value="Ether">Ether</option>
-        </select>
+        <input type="text" asp-for="SearchStringText"/>
+        <input type="submit" value="Search" />
     </p>
 </form>
+
 <table class="table">
     <thead>
         <tr>
