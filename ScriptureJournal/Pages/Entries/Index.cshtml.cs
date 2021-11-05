@@ -21,15 +21,18 @@ namespace ScriptureJournal.Pages.Entries
         }
 
         public IList<Entry> Entry { get;set; }
+
         [BindProperty(SupportsGet = true)]
         public string SearchStringBook { get; set; }
         public SelectList Books { get; set; }
+
         [BindProperty(SupportsGet = true)]
         public string Book { get; set; }
 
-
+        [BindProperty(SupportsGet = true)]        
         public string SearchStringText { get; set; }
         public SelectList Texts { get; set; }
+
         [BindProperty(SupportsGet = true)]
         public string Text { get; set; }
 
@@ -41,7 +44,7 @@ namespace ScriptureJournal.Pages.Entries
 
             if (!string.IsNullOrEmpty(SearchStringBook))
             {
-                entries = entries.Where(s => s.Book == SearchStringBook);
+                entries = entries.Where(s => s.Book.Contains(SearchStringBook));
             }
 
             Books = new SelectList(await bookQuery.Distinct().ToListAsync());
@@ -49,7 +52,7 @@ namespace ScriptureJournal.Pages.Entries
 
             if (!string.IsNullOrEmpty(SearchStringText))
             {
-                entries = entries.Where(s => s.Text == SearchStringText);
+                entries = entries.Where(s => s.Text.Contains(SearchStringText));
             }
 
             Texts = new SelectList(await bookQuery.Distinct().ToListAsync());
