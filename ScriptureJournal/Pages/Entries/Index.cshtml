@@ -12,8 +12,10 @@
 </p>
 <form>
     <p>
-        <input type="text" asp-for="SearchStringBook" />
-        <input type="text" asp-for="SearchStringText"/>
+        <label>Book:</label><br>
+        <input type="text" asp-for="SearchStringBook" /><br><br>
+        <label>Text:</label><br>
+        <input type="text" asp-for="SearchStringText"/><br><br>
         <input type="submit" value="Search" />
     </p>
 </form>
